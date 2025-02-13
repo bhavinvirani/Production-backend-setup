@@ -5,6 +5,10 @@ import util from 'util'
 import config from '../config/config'
 import { EApplicationEnvironment } from '../constant/application'
 import path from 'path'
+import * as sourceMapSupport from 'source-map-support'
+
+// Enable sourcemap support
+sourceMapSupport.install()
 
 const consoleLogFormat = format.printf((info) => {
     const { level, message, timestamp, meta = {} as Record<string, unknown> } = info
