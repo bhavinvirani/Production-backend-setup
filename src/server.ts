@@ -1,11 +1,22 @@
 import app from './app';
 import config from './config/config';
+import databaseService from './service/databaseService';
 import logger  from './util/logger';
 
 const server = app.listen(config.PORT);
 
-;(() => {
+;void (async () => {
     try {
+
+        // Connect to database
+        const dbConnection = await databaseService.connect();
+        logger.info('DATABASE_CONNECTED', {
+            meta: {
+                CONNECTION_NAME: dbConnection.name,
+                
+            }
+        });
+         
         logger.info('SERVER_STARTED', {
             meta:{
                 port: config.PORT,
