@@ -8,10 +8,9 @@ export default {
     CREATED: 'Created',
     NO_CONTENT: 'No Content',
     ACCEPTED: 'Accepted',
-    MOVED_PERMANENTLY: 'Moved Permanently',
-    NOT_MODIFIED: 'Not Modified',
     REQUEST_TIMEOUT: 'Request Timeout',
     TEST: 'Hello World!',
     SOMETHING_WENT_WRONG: 'Something went wrong',
     NOT_FOUND: (entity: string) => `${entity} not found`,
+    TOO_MANY_REQUESTS: 'Too many requests',
 }
