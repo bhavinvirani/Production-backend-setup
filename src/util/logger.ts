@@ -6,19 +6,32 @@ import config from '../config/config'
 import { EApplicationEnvironment } from '../constant/application'
 import path from 'path'
 import * as sourceMapSupport from 'source-map-support'
-
+import {blue, green, magenta, red, yellow} from 'colorette'
 // Enable sourcemap support
 sourceMapSupport.install()
 
+const colorizedLevel = (level: string) => {
+    switch (level) {
+       case 'ERRRO':
+            return red(level)            
+        case 'INFO':
+            return blue(level)
+        case 'WARN':
+            return yellow(level)
+        default:
+            return level
+    }
+}
+
 const consoleLogFormat = format.printf((info) => {
     const { level, message, timestamp, meta = {} as Record<string, unknown> } = info
-    const customLevel = level.toUpperCase()
+    const customLevel = colorizedLevel(level.toUpperCase())
     const customMessage = message
-    const customTimestamp = timestamp
-    const customMeta = util.inspect(meta, { showHidden: false, depth: null })
+    const customTimestamp = green(timestamp as string)
+    const customMeta = util.inspect(meta, { showHidden: false, depth: null, colors: true })
 
     // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-    const customLog = `${customLevel} [${customTimestamp}] ${customMessage} \n${'META'} ${customMeta}\n`
+    const customLog = `${customLevel} [${customTimestamp}] ${customMessage} \n${magenta('META')} ${customMeta}\n`
     return customLog
 })
 
