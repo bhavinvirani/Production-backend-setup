@@ -2,6 +2,9 @@ import { Request, Response } from 'express'
 import { THttpResponse } from '../types/types'
 import config from '../config/config'
 import { EApplicationEnvironment } from '../constant/application'
+import logger from './logger'
+
+
 
 export default (req: Request, res: Response, responseStatusCode: number, responseMessage: string, data: unknown = null) => {
     const response: THttpResponse = {
@@ -16,8 +19,7 @@ export default (req: Request, res: Response, responseStatusCode: number, respons
         data: data
     }
     // Log
-    // eslint-disable-next-line no-console
-    console.log('CONTROLLER_RESPONSE', response)
+    logger.log('CONTROLLER_RESPONSE', response)
 
     // Production Env check
     if(config.ENV === EApplicationEnvironment.PRODUCTION){
