@@ -12,6 +12,8 @@
   "author": "Bhavin Virani",
   "license": "ISC",
   "devDependencies": {
+    "@commitlint/cli": "^19.7.1",
+    "@commitlint/config-conventional": "^19.7.1",
     "@types/node": "^22.13.1",
     "husky": "^9.1.7",
     "lint-staged": "^15.4.3",
