@@ -22,7 +22,7 @@ export default (err: Error | unknown, req: Request, errorStatusCode: number): TH
         trace: err instanceof Error ? { error: err.stack } : null
     }
     // Log
-    logger.log('CONTROLLER_ERROR', errorObj)
+    logger.error('ERROR', errorObj)
 
     // Production Env check
     if (config.ENV === EApplicationEnvironment.PRODUCTION) {

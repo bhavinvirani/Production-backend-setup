@@ -12,7 +12,7 @@ sourceMapSupport.install()
 
 const colorizedLevel = (level: string) => {
     switch (level) {
-       case 'ERRRO':
+       case 'ERROR':
             return red(level)            
         case 'INFO':
             return blue(level)
@@ -34,6 +34,18 @@ const consoleLogFormat = format.printf((info) => {
     const customLog = `${customLevel} [${customTimestamp}] ${customMessage} \n${magenta('META')} ${customMeta}\n`
     return customLog
 })
+
+const consoleTransport = (): Array<ConsoleTransportInstance> => {
+    if (config.ENV === EApplicationEnvironment.DEVELOPMENT) {
+        return [
+            new transports.Console({
+                level: 'info',
+                format: format.combine(format.timestamp(), consoleLogFormat)
+            })
+        ]
+    }
+    return []
+}
 
 const fileLogFormat = format.printf((info) => {
     const { level, message, timestamp, meta = {} } = info
@@ -60,18 +72,6 @@ const fileLogFormat = format.printf((info) => {
 
     return JSON.stringify(logData, null, 4)
 })
-
-const consoleTransport = (): Array<ConsoleTransportInstance> => {
-    if (config.ENV === EApplicationEnvironment.DEVELOPMENT) {
-        return [
-            new transports.Console({
-                level: 'info',
-                format: format.combine(format.timestamp(), consoleLogFormat)
-            })
-        ]
-    }
-    return []
-}
 
 // const fileTransport = (): Array<FileTransportInstance> => {
 //     return [

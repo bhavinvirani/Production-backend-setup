@@ -13,7 +13,6 @@ const server = app.listen(config.PORT);
         logger.info('DATABASE_CONNECTED', {
             meta: {
                 CONNECTION_NAME: dbConnection.name,
-                
             }
         });
          
@@ -24,7 +23,7 @@ const server = app.listen(config.PORT);
             }
         });
     } catch (error) {
-        logger.error('SERVER_ERROR: ', {meta:  error});
+        logger.error('SERVER_ERROR', {meta:  error});
         server.close((error) => {
             if(error){
                 logger.error('SERVER_CLOSE_ERROR: ', {meta:  error});
