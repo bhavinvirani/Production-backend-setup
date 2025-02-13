@@ -1,0 +1,17 @@
+export default {
+    SUCCESS: 'Success',
+    INTERNAL_SERVER_ERROR: 'Internal Server Error',
+    UNAUTHORIZED: 'Unauthorized',
+    BAD_REQUEST: 'Bad Request',
+    FORBIDDEN: 'Forbidden',
+    CONFLICT: 'Conflict',
+    CREATED: 'Created',
+    NO_CONTENT: 'No Content',
+    ACCEPTED: 'Accepted',
+    MOVED_PERMANENTLY: 'Moved Permanently',
+    NOT_MODIFIED: 'Not Modified',
+    REQUEST_TIMEOUT: 'Request Timeout',
+    TEST: 'Hello World!',
+    SOMETHING_WENT_WRONG: 'Something went wrong',
+    NOT_FOUND: (entity: string) => `${entity} not found`,
+}
