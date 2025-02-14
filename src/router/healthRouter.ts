@@ -3,7 +3,11 @@ import healthController from '../controller/healthController'
 
 const router = Router()
 
-// /self 
+//  rate limiter
+// router.use(rateLimiter)
+// router.get('/', rateLimiter, healthController.healthCheck) 
+
+// Health check
 router.get('/', healthController.healthCheck) 
 
 export default router

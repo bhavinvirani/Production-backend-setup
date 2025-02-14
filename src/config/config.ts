@@ -9,5 +9,23 @@ export default {
 
     // Database
     DATABASE_URI: process.env.DATABASE_URI,
+
+    // Frontend
+    FRONTEND_URL: process.env.FRONTEND_URL,
+
+    // Email service
+    EMAIL_SERVICE_API_KEY: process.env.EMAIL_SERVICE_API_KEY,
+
+    // Access token
+    ACCESS_TOKEN:{
+        SECRET: process.env.ACCESS_TOKEN_SECRET,
+        EXPIRY: 3600
+    },
+
+    // Refresh Token
+    REFRESH_TOKEN:{
+        SECRET: process.env.REFRESH_TOKEN_SECRET,
+        EXPIRY: 3600 * 24 * 365
+    }
     
 }

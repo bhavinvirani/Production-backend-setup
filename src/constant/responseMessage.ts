@@ -9,8 +9,20 @@ export default {
     NO_CONTENT: 'No Content',
     ACCEPTED: 'Accepted',
     REQUEST_TIMEOUT: 'Request Timeout',
-    TEST: 'Hello World!',
+    TEST: 'Hello World!!!',
     SOMETHING_WENT_WRONG: 'Something went wrong',
     NOT_FOUND: (entity: string) => `${entity} not found`,
     TOO_MANY_REQUESTS: 'Too many requests',
+    INVALID_PHONE_NUMBER: 'Invalid phone number',
+    ALREADY_EXISTS: (entity: string, identifier: string) => `${entity} already exists with ${identifier}`,
+    INVALID_ACCOUNT_VERIFICATION_TOKEN_CODE: 'Invalid account verification token or code',
+    ACCOUNT_ALREADY_VERIFIED: 'Account already verified',
+    ACCOUNT_VERIFICATION_REQUIRED: 'Account verification required',
+    INVALID_EMAIL_OR_PASSWORD: 'Invalid Email or Password',
+    ACCOUNT_CONFIRMATION_REQUIRED: 'Account Confirmation required',
+    INVALID_REQUEST: 'Invalid request',
+    EXPIRED_URL: 'Expired URL',
+    INVALID_OLD_PASSWORD: 'Invalid old password',
+    PASSWORD_MATCHING_WITH_OLD_PASSWORD: 'New password and old password can not be same'
+    
 }

@@ -19,7 +19,7 @@ export default (req: Request, res: Response, responseStatusCode: number, respons
         data: data
     }
     // Log
-    logger.info('CONTROLLER_RESPONSE', response)
+    logger.info('SUCCESS', response)
 
     // Production Env check
     if(config.ENV === EApplicationEnvironment.PRODUCTION){
